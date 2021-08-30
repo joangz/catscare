@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname" v-model:value="message"><br><br>
+        <p>{{ message }}</p>
+        <button v-on:click="greet">Click here!</button>
+        <button v-on:click="tambahDropdown">Add</button>
+        <div v-for="(item, index) in dropDowns">
+            <select name="cars" id="cars">
+                <option value="volvo">{{ item.nama }}</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+              </select>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            dropDowns : [
+                {nama: "joang1"},
+            ]
+        },
+        methods: {
+            greet: function (event) {
+                this.message = "Joang taek"
+            },
+            tambahDropdown: function (event) {
+                this.dropDowns.push({nama: "tambahan"})
+            }
+        }
+    })
+</script>
+
+</html>
